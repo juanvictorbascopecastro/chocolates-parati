@@ -1,0 +1,17 @@
+<app-title title="Defer Views" withShadow />
+
+<section class="grid grid-cols-1">
+  @defer () {
+  <app-heavy-loaders-slow cssClass="bg-blue-500" />
+  } @placeholder {
+  <b>Cargando...</b>
+  } @defer (on idle) {
+  <app-heavy-loaders-slow cssClass="bg-blue-500" />
+  } @placeholder {
+  <b>Cargando...</b>
+  } @defer (on viewport) {
+  <app-heavy-loaders-slow cssClass="bg-blue-500" />
+  } @placeholder {
+  <b>Cargando...</b>
+  }
+</section>
