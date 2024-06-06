@@ -1,0 +1,16 @@
+<div class="mx-auto grid max-w-4xl grid-cols-12 gap-4 bg-zinc-50 p-1">
+  <div
+    class="header col-span-12 rounded-lg border border-gray-300 bg-gray-200 py-2"
+  >
+    <shared-search-input
+      placeholder="Buscar producto por nombre..."
+      (onValue)="searchByName($event)"
+    />
+  </div>
+  <div class="col-span-4">
+    <landing-category-product />
+  </div>
+  <div class="w-full col-span-8">
+    <landing-product-list />
+  </div>
+</div>

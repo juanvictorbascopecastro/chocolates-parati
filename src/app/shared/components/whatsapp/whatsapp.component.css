@@ -1,0 +1,22 @@
+.whatsapp {
+  --tw-shadow-color: rgba(37, 211, 102, 0.5);
+  --tw-shadow: #25d366;
+}
+.shadow-highlight {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.pulse-effect {
+  position: relative;
+  overflow: hidden;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}

@@ -1,0 +1,190 @@
+<div class="w-full z-20">
+  <header
+    class="header top-0 bg-[#28160e] shadow-md flex items-center justify-between px-4 md:px-8 py-02 text-white"
+  >
+    <h1 class="w-3/10 flex">
+      <div class="mr-2 rounded-full p-1 bg-white">
+        <img
+          src="./../../../../../assets/favicon-96x96.png"
+          class="h-10 w-10"
+        />
+      </div>
+      <a to="/" class="textLogo text-4xl font-bold text-amber-500 mt-1"
+        >Angular</a
+      >
+    </h1>
+
+    <nav class="nav font-semibold hidden lg:flex">
+      <ul class="flex items-center">
+        <li>
+          <button
+            routerLink="tienda"
+            class="relative p-4 px-4 border-b-2 border-amber-500 border-opacity-0 hover:border-opacity-100 hover:text-amber-500 duration-200 cursor-pointer"
+          >
+            Inicio
+          </button>
+        </li>
+        <!-- <li
+                    class="relative p-4 border-amber-500 border-opacity-0 hover:border-opacity-100 hover:text-amber-500 duration-200 cursor-pointer"
+                    :class="{
+                        ' text-amber-500 border-opacity-100':
+                            $route.name === 'infraestructura',
+                    }"
+                    @mouseover="showMenuPlanes = true"
+                    @mouseleave="showMenuPlanes = false"
+                >
+                    <span class="block">Planes</span>
+                    <div
+                        v-if="showMenuPlanes"
+                        class="absolute top-full left-0 mt-0 z-30"
+                    >
+                        <div
+                            class="bg-white dark:bg-gray-900 rounded-md shadow-l ring-1 ring-black ring-opacity-5 border text-white text-sm whitespace-nowrap px-4"
+                        >
+                            <a
+                                href="#"
+                                class="block px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-amber-500 hover:text-amber-500"
+                                >Planes 1</a
+                            >
+                            <a
+                                href="#"
+                                class="block px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-amber-500 hover:text-amber-500"
+                                >Planes 2</a
+                            >
+                            <a
+                                href="#"
+                                class="block px-4 py-2 text-gray-500 dark:text-gray-400 dark:hover:text-amber-500 hover:text-amber-500"
+                                >Planes 3</a
+                            >
+                        </div>
+                    </div>
+                </li> -->
+        <li>
+          <button
+            class="relative p-4 px-4 border-b-2 border-amber-500 border-opacity-0 hover:border-opacity-100 hover:text-amber-500 duration-200 cursor-pointer"
+            routerLink="productos"
+          >
+            Productos
+          </button>
+        </li>
+        <li>
+          <button
+            class="relative py-4 px-4 border-b-2 border-amber-500 border-opacity-0 hover:border-opacity-100 hover:text-amber-500 duration-200 cursor-pointer"
+            routerLink="sucursales"
+          >
+            Sucursales
+          </button>
+        </li>
+        <!-- <li>
+                    <button
+                        class="relative py-4 px-4 border-b-2 border-amber-500 border-opacity-0 hover:border-opacity-100 hover:text-amber-500 duration-200 cursor-pointer"
+                        @click="scrollToSection('caracteristicas')"
+                    >
+                        Caracteristicas
+                    </button>
+                </li>
+                -->
+        <li>
+          <button
+            class="relative p-4 px-4 border-b-2 border-amber-500 border-opacity-0 hover:border-opacity-100 hover:text-amber-500 duration-200 cursor-pointer"
+            (click)="scrollToSection('contactanos')"
+          >
+            Contactanos
+          </button>
+        </li>
+        <!-- <li>
+                    <router-link
+                        to="/trabaja-con-nosotros"
+                        :class="{
+                            'text-amber-500 border-opacity-100':
+                                $route.name === 'trabaja-con-nosotros',
+                        }"
+                        class="p-4 px-2 border-b-2 border-amber-500 border-opacity-0 hover:border-opacity-100 hover:text-amber-500 duration-200 cursor-pointer"
+                        style="white-space: nowrap"
+                    >
+                        <span>Trabaja con nosotros</span>
+                    </router-link>
+                </li> -->
+      </ul>
+    </nav>
+
+    <div class="w-3/10 flex justify-end py-3">
+      <div class="hidden lg:flex md:mr-4 mt-2">
+        <app-social-media />
+      </div>
+
+      <button
+        class="text-[#1A2238] bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:text-white font-bold py-1 px-3 rounded transition-colors duration-300 mr-1.5"
+        (click)="modeDark()"
+      >
+        <i class="bi bi-brightness-high-fill text-xl" v-if="isDark"></i>
+        <i class="bi bi-moon-fill text-xl" v-else></i>
+      </button>
+      <button
+        class="text-[#1A2238] bg-gray-100 hover:bg-gray-200 dark:bg-slate-700 dark:text-white font-bold py-1 px-3 rounded transition-colors duration-300 lg:hidden"
+        (click)="showMobileMenu = !showMobileMenu"
+      >
+        <i class="bi bi-list text-xl"></i>
+      </button>
+      <a
+        routerLink="/login"
+        class="bg-blue-500 px-3 ml-1 py-1.5 text-white items-center space-x-2 rounded focus:bg-blue-600 hidden lg:inline-block whitespace-nowrap"
+      >
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Iniciar sesión</span>
+      </a>
+    </div>
+  </header>
+  <div
+    class="absolute top-full left-0 mt-0 z-30 lg:hidden w-full bg-white dark:bg-gray-900 border-t-2 py-2 px-3 text-gray-800 dark:text-gray-200"
+    v-show="showMobileMenu"
+  >
+    <div class="flex flex-col">
+      <a
+        routerLink="tienda"
+        routerLinkActive="text-amber-500"
+        class="text-sm font-semibold hover:text-amber-500 py-2"
+        >Inicio</a
+      >
+      <button
+        routerLink="productos"
+        class="text-sm font-semibold hover:text-amber-500 py-2 text-left"
+      >
+        <i class="bi bi-cash-stack mr-1"></i>
+        Productos
+      </button>
+      <button
+        routerLink="sucursales"
+        class="text-sm font-semibold hover:text-amber-500 py-2 text-left"
+      >
+        <i class="bi bi-bank mr-1"></i>
+
+        Sucursales
+      </button>
+      <!-- <button
+                @click="scrollToSection('caracteristicas')"
+                class="text-sm font-semibold hover:text-amber-500 py-2 text-left"
+            >
+                <i class="bi bi-info-circle-fill mr-1"></i>
+                Caracteristicas
+            </button> -->
+      <button
+        (click)="scrollToSection('contactanos')"
+        class="text-sm font-semibold hover:text-amber-500 py-2 text-left"
+      >
+        <i class="bi bi-telephone-fill mr-1"></i>
+        Contactenos
+      </button>
+      <div class="flex justify-between items-center border-t-2 pt-2">
+        <app-social-media />
+        <button
+          routerLink="registrarme"
+          class="bg-blue-500 px-3 py-1.5 text-white inline-flex items-center space-x-2 rounded focus:bg-blue-600"
+        >
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Iniciar sesión</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
